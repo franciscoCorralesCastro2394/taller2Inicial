@@ -6,9 +6,17 @@
             <button class="btn btn-outline-dark" (click)="goTo('/secure/element/triangle')">Triangle</button>
             <button class="btn btn-outline-dark" (click)="goTo('/secure/element/square')">Square</button>
             <button class="btn btn-outline-dark" (click)="goTo('/about-us')">About Us</button>
+            <nav class="nav flex-column pt-3 height-75" *ngIf="elementos$">
+                <a class="nav-link text-white" [routerLink]="['/secure','element',item.nombre]" routerLinkActive="text-bold" *ngFor="let item of (elementos$| async)">{{item.nombre}}</a>
+            </nav>
+            <nav class="nav flex-column height-75" *ngIf="!elementos$">
+                <span class="nav-link text-white"> <i class="fa fa-info-circle" aria-hidden="true"> </i> No hay items</span>
+            </nav>
         </div>
         <div class="col-8  bg-secondary">
-            <router-outlet></router-outlet>
+            <router-outlet>
+
+            </router-outlet>
         </div>
     </div>
 </div>
