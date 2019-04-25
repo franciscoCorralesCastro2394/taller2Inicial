@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FirestoreSettingsToken } from  '@angular/fire/firestore' ;
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +46,7 @@ import { RecoveryComponent } from './components/recovery/recovery.component';
     AngularFireStorageModule,
     AngularFireAuthModule
   ],
-  providers: [DataService, LoginService, AuthenticationGuard, AuthorizationGuard],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} } , DataService, LoginService, AuthenticationGuard, AuthorizationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
