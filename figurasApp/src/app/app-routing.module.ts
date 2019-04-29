@@ -19,8 +19,7 @@ const routes: Routes = [
     ]  },
   { path: 'secure', component: SecureComponent, children: [
       { path: 'principal', component: PrincipalComponent },
-      {
-        path: 'element/:elementName', component: ElementComponent  },
+      { path: 'element/:elementName', component: ElementComponent},
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: 'secure/principal' }

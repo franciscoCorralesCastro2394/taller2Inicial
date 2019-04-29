@@ -1,17 +1,21 @@
 <div class="container-fluid d-flex h-100 flex-column">
     <div class="row h-100">
         <div class="col-4 bg-primary">
-            secure
+            <h4>
+                Welcome to Application
+            </h4>
 
-            <button class="btn btn-outline-dark" (click)="goTo('/secure/element/triangle')">Triangle</button>
-            <button class="btn btn-outline-dark" (click)="goTo('/secure/element/square')">Square</button>
-            <button class="btn btn-outline-dark" (click)="goTo('/about-us')">About Us</button>
+
+            <!-- <button class="btn btn-outline-dark" (click)="goTo('/secure/element/triangle')">Triangle</button>
+            <button class="btn btn-outline-dark" (click)="goTo('/secure/element/square')">Square</button> -->
+
             <nav class="nav flex-column pt-3 height-75" *ngIf="elementos$">
                 <a class="nav-link text-white" [routerLink]="['/secure','element',item.nombres]" routerLinkActive="text-bold" *ngFor="let item of (elementos$| async)">{{item.nombres}}</a>
             </nav>
             <nav class="nav flex-column height-75" *ngIf="!elementos$">
                 <span class="nav-link text-white"> <i class="fa fa-info-circle" aria-hidden="true"> </i> No hay items</span>
             </nav>
+            <button class="btn btn-outline-dark" (click)="goTo('/about-us')">About Us</button>
         </div>
         <div class="col-8  bg-secondary">
             <router-outlet>

@@ -27,9 +27,11 @@ export class DataService {
     return this.angularFirestore.doc<Elemento>('shapes')
       .collection<Formula>('formulas').valueChanges();
   }
+  
   getElementosByName(term: string): Observable<Elemento[]> { 
-      return  this.angularFirestore.collection<Elemento>('shapes', ref => ref.where('nombre', '==', term)).valueChanges();
+      return  this.angularFirestore.collection<Elemento>('shapes', ref => ref.where('nombres', '==', term)).valueChanges();
   }
+
   deleteElemento(elemento: Elemento) { 
     this.angularFirestore.collection<Elemento>('shapes').doc(elemento.id).delete();
   }

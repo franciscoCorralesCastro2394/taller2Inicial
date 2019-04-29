@@ -1,7 +1,30 @@
 <div class="row h-100">
     <div class="col">
-        element
-        <button class="btn btn-outline-dark" (click)="goTo('/secure/principal')">Principal</button>
-    </div>
+        <!-- <button class="btn btn-outline-dark" (click)="goTo('/secure/principal')">Principal</button> -->
+        <div *ngIf="elementoSelect$">
+            <div class="container" *ngFor="let item of (elementoSelect$| async)">
+                <h1 class="text-center">{{item.nombres}}</h1>
+                <br>
+                <p>
+                    {{ item.descripcion }}
+                </p>
 
+            </div>
+            <br><br><br>
+
+            <div class="row">
+                <div class="col-md-6  text-center">
+                    <button type="button"> Formulas</button>
+
+                </div>
+                <div class="col-md-6  text-center">
+                    <button type="button"> Imagenes</button>
+
+                </div>
+            </div>
+        </div>
+
+        <h1 *ngIf="!elementoSelect$"> Error al encontrar datos </h1>
+
+    </div>
 </div>
